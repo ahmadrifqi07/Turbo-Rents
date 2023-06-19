@@ -1,0 +1,151 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <h2>Pilihan terbaik untuk solusi perentalan kendaraan</h2>
+      <h1>Turbo <span>Rents</span></h1>
+      <h3>Booking now</h3>
+      <h3>081278098229</h3>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <!-- ======= Featured Services Section ======= -->
+  <section id="order" class="centered-text">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <h2>TurboRents</h2>
+      <h1></h1>
+    </div>
+    <section id="order" class="centered-text">
+      <div class="containerabt container text-center mb-3" data-aos="zoom-out" data-aos-delay="100">
+        <h2>About Us</h2>
+        <h1>
+          Selamat datang di website rental mobil TurboRents. TurboRents merupakan sebuah website perentalan mobil yang bertujuan untuk memenuhi kebutuhan bisnis, instansi, pariwisata,dan kepentingan keluarga di Kota Semarang dan
+          sekitarnya. TurboRents menawarkan rental mobil dengan berbagai jenis dan harga yang sesuai dengan kebutuhan klien.
+        </h1>
+        <h3>Pilihlah Armada Kami</h3>
+      </div>
+
+      <div class="container image-container">
+        <div class="row row-cols-3">
+
+          {% for armada in armadas %}
+
+          <div class="col my-3">
+            <div class="image-box test rounded-4 text-center">
+              <h3 class="">{{ armada.name }}</h3>
+              <hr />
+              <img src="{{ armada.imageURL }}" alt="" />
+              <a href="https://wa.me/6282234908760" type="button" class="btn btn-danger mb-3">Booking Via Whatsapp</a>
+            </div>
+          </div>
+
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <div id="bodyfrm" class="container rounded ps-5 py-5">
+    <h2>FORM PEMESANAN</h2>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Jenis Kendaraan</label>
+        {{ form.armada }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Tanggal Mulai</label>
+        {{ form.tgl_mulai }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Durasi</label>
+        {{ form.durasi }}
+      </div>
+
+      <button type="submit" class="btn btn-dangerfrm">Cetak Pemesanan</button>
+    </form>
+
+  </div>
+
+  <div class="faq">
+    <h1>FAQ</h1>
+    <h2>Pertanyaan yang sering ditanyakan oleh pelanggan kami</h2>
+  </div>
+
+  <div class="container">
+    <details>
+      <summary>
+        <h2 class="text-light ps-5 py-2">Bagaimana sistem pembayarannya?</h2>
+      </summary>
+      <p class="mx-5">Sistem pembayaran dapat dilakukan pada WhatsApp. Jadi, setelah user mengisi formulir pendaftaran, user akan diarahkan ke WhatsApp dan memilih metode pembayaran yang tersedia. Lalu, setelah user melakukan pembayaran, user perlu melakukan konfirmasi kepada admin. 
+      </p>
+    </details>
+    <details>
+      <summary>
+        <h2 class="text-light ps-5 py-2">Apa saja yang diperlukan untuk merental mobil?</h2>
+      </summary>
+      <p class="mx-5">Untuk dapat merental mobil, user perlu mengisi formulir pendaftaran yang tersedia pada website ini.
+      </p>
+    </details>
+    <details>
+      <summary>
+        <h2 class="text-light ps-5 py-2">Berapa batas usia untuk merental mobil?</h2>
+      </summary>
+      <p class="mx-5">Batas minimal usia untuk merental mobil adalah 17 tahun atau minimal sudah memiliki KTP karena pada saat merental mobil akan dimintai KTP sebagai identitas perental.</p>
+    </details>
+    <details>
+      <summary>
+        <h2 class="text-light ps-5 py-2">Apakah saya bisa merental mobil untuk teman atau orang lain?</h2>
+      </summary>
+      <p class="mx-5">Pada website kami, user bebas menggunakan mobil untuk hal apapun asalkan dengan mengikuti syarat dan ketentuan yang berlaku.</p>
+    </details>
+  
+  </div>
+
+  <div class="box">
+    <div class="container my-5">
+      <div class="rectangle text-center rounded-4">
+        <h1 class="pt-5">
+          Mau Konsultasi dan Booking? <br/>
+          Chat me!
+        </h1>
+        <p>
+          <a href="https://wa.me/6282234908760" type="button" class="btn btn-danger mt-3">Whatsapp</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+   <div class="row">
+    
+    <div class="Alamat col text-center">
+      <h1>Alamat</h1>
+      <h2 class="text-start ms-5">
+        Kel. Sekaran, Kec. Gn. Pati,<br />
+        Kota Semarang, Jawa Tengah 50229
+      </h2>
+    </div>
+
+    <div class="Alamat col text-center">
+      <h1>Support Payments</h1>
+    </div>
+
+   </div>
+  </div>
+
+  <!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+
+{% endblock content %}
